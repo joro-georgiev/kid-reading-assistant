@@ -1,0 +1,327 @@
+/* Kid-friendly theme */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Main container */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Story cards grid */
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.story-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 3px solid transparent;
+}
+
+.story-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    border-color: #667eea;
+}
+
+.story-card .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #4a4a4a;
+}
+
+.story-card .preview {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 14px;
+    line-height: 1.4;
+}
+
+.story-card .difficulty {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+}
+
+.difficulty-1 { background: #4caf50; }
+.difficulty-2 { background: #ff9800; }
+.difficulty-3 { background: #f44336; }
+
+.lang-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    margin-left: 6px;
+}
+
+.lang-en { background: #2196f3; }
+.lang-bg { background: #9c27b0; }
+
+/* Section titles */
+.section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #555;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Reading page */
+.reading-area {
+    background: white;
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.story-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 24px;
+}
+
+.word-display {
+    font-size: 36px;
+    line-height: 2.2;
+    text-align: center;
+    padding: 20px;
+    min-height: 200px;
+}
+
+.word {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 2px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.word.correct {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+    animation: wordPop 0.3s ease;
+}
+
+.word.missed {
+    background-color: #ffe0b2;
+    color: #e65100;
+}
+
+.word.current {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    font-weight: 700;
+    transform: scale(1.1);
+}
+
+@keyframes wordPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* Mic button */
+.mic-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.mic-btn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mic-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 28px rgba(102, 126, 234, 0.5);
+}
+
+.mic-btn.listening {
+    background: linear-gradient(135deg, #f44336 0%, #e91e63 100%);
+    box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.4); }
+    70% { box-shadow: 0 0 0 20px rgba(244, 67, 54, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0); }
+}
+
+.mic-label {
+    display: block;
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #666;
+}
+
+/* Status bar */
+.status-bar {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    margin-top: 10px;
+    min-height: 28px;
+}
+
+/* Done button */
+.done-btn {
+    display: none;
+    margin: 20px auto;
+    padding: 16px 48px;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(76, 175, 80, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.done-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Results panel */
+.results-panel {
+    display: none;
+    background: white;
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 24px;
+    text-align: center;
+}
+
+.results-panel .score {
+    font-size: 64px;
+    font-weight: 700;
+    color: #667eea;
+    margin: 16px 0;
+}
+
+.results-panel .message {
+    font-size: 26px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.results-panel .stats {
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 24px;
+}
+
+.try-again-btn, .home-btn {
+    display: inline-block;
+    margin: 8px;
+    padding: 14px 36px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.try-again-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.home-btn {
+    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+    color: white;
+}
+
+.try-again-btn:hover, .home-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 24px;
+    color: #888;
+}
+
+/* Speech not supported warning */
+.speech-warning {
+    display: none;
+    background: #fff3e0;
+    border: 2px solid #ff9800;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 18px;
+    color: #e65100;
+}
