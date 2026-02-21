@@ -19,6 +19,10 @@ class SpeechRecognizer {
         this.onStateChange = null; // callback(listening)
         this.allWords = [];
 
+        this._lastEventTime = 0;
+        this._watchdogTimer = null;
+        this._restartTimer = null;
+
         this._setupEvents();
     }
 
@@ -26,6 +30,7 @@ class SpeechRecognizer {
         let lastProcessedIndex = 0;
 
         this.recognition.onresult = (event) => {
+            this._lastEventTime = Date.now();
             const words = [];
 
             // Gather all final + interim results into a flat word list
@@ -48,6 +53,7 @@ class SpeechRecognizer {
         };
 
         this.recognition.onend = () => {
+            this._lastEventTime = Date.now();
             // Auto-restart if we're still supposed to be listening
             // (kids pause a lot while reading)
             if (this.listening) {
@@ -68,21 +74,72 @@ class SpeechRecognizer {
         };
     }
 
+    _recover() {
+        if (!this.listening) return;
+        console.log('[SpeechRecognizer] recovering — forcing abort + restart');
+        try {
+            this.recognition.abort();
+        } catch (e) {
+            // Ignore
+        }
+        this._lastEventTime = Date.now();
+        setTimeout(() => {
+            if (!this.listening) return;
+            try {
+                this.recognition.start();
+            } catch (e) {
+                // Ignore — may already be started
+            }
+        }, 300);
+    }
+
+    _startTimers() {
+        this._clearTimers();
+        // Watchdog: check every 2s if recognition has gone silent for >10s
+        this._watchdogTimer = setInterval(() => {
+            if (this.listening && Date.now() - this._lastEventTime > 10000) {
+                console.log('[SpeechRecognizer] watchdog triggered — no events for 10s');
+                this._recover();
+            }
+        }, 2000);
+        // Proactive restart every 45s to avoid Chrome's ~60s timeout bug
+        this._restartTimer = setInterval(() => {
+            if (this.listening) {
+                console.log('[SpeechRecognizer] proactive restart at 45s');
+                this._recover();
+            }
+        }, 45000);
+    }
+
+    _clearTimers() {
+        if (this._watchdogTimer) {
+            clearInterval(this._watchdogTimer);
+            this._watchdogTimer = null;
+        }
+        if (this._restartTimer) {
+            clearInterval(this._restartTimer);
+            this._restartTimer = null;
+        }
+    }
+
     start() {
         if (!this.supported) return;
         this.allWords = [];
         this.listening = true;
+        this._lastEventTime = Date.now();
         try {
             this.recognition.start();
         } catch (e) {
             // Already started
         }
+        this._startTimers();
         if (this.onStateChange) this.onStateChange(true);
     }
 
     stop() {
         if (!this.supported) return;
         this.listening = false;
+        this._clearTimers();
         try {
             this.recognition.stop();
         } catch (e) {
