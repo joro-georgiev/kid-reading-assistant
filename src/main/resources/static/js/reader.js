@@ -46,6 +46,31 @@
         osc.onended = function () { activeOsc = null; };
     }
 
+    function playCompleteSound() {
+        if (!audioCtx) return;
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        if (activeOsc) {
+            try { activeOsc.stop(); } catch (e) {}
+            activeOsc = null;
+        }
+
+        var now = audioCtx.currentTime;
+        var notes = [523, 659, 784, 1047]; // C5 E5 G5 C6
+        notes.forEach(function (freq, i) {
+            var osc = audioCtx.createOscillator();
+            var gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.type = 'sine';
+            osc.frequency.value = freq;
+            var start = now + i * 0.12;
+            gain.gain.setValueAtTime(0.5, start);
+            gain.gain.exponentialRampToValueAtTime(0.01, start + 0.4);
+            osc.start(start);
+            osc.stop(start + 0.4);
+        });
+    }
+
     // DOM elements
     const storyTitle = document.getElementById('story-title');
     const wordDisplay = document.getElementById('word-display');
@@ -138,6 +163,7 @@
                 statusBar.textContent = t('read.wordsToGo', { remaining: remaining });
             } else {
                 statusBar.textContent = t('read.allWordsRead');
+                playCompleteSound();
             }
         }
     }
