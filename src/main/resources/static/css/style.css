@@ -68,11 +68,17 @@ body {
 
 /* Points display */
 .points-display {
-    position: absolute;
+    position: fixed;
+    bottom: 16px;
     left: 16px;
-    font-size: 14px;
+    font-size: 24px;
     font-weight: 700;
-    color: white;
+    color: #667eea;
+    background: white;
+    padding: 8px 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    z-index: 100;
 }
 
 .points-pop {

@@ -6,6 +6,45 @@
     let currentExpectedIndex = 0;
     let recognizer = null;
     let sessionPoints = 0;
+    let audioCtx = null;
+
+    function ensureAudioCtx() {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    let activeOsc = null;
+    let activeGain = null;
+
+    function playPointSound() {
+        if (!audioCtx) return;
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        // Stop previous sound immediately
+        if (activeOsc) {
+            try { activeOsc.stop(); } catch (e) {}
+            activeOsc = null;
+        }
+
+        var now = audioCtx.currentTime;
+        var osc = audioCtx.createOscillator();
+        var gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(660, now);
+        osc.frequency.exponentialRampToValueAtTime(880, now + 0.12);
+        gain.gain.setValueAtTime(0.6, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+        osc.start(now);
+        osc.stop(now + 0.25);
+        activeOsc = osc;
+        osc.onended = function () { activeOsc = null; };
+    }
 
     // DOM elements
     const storyTitle = document.getElementById('story-title');
@@ -90,6 +129,7 @@
             currentExpectedIndex++;
             sessionPoints++;
             updatePointsDisplay(addPoints(1));
+            playPointSound();
             highlightCurrent();
 
             // Update status
@@ -182,6 +222,7 @@
 
         // Mic button toggle
         micBtn.addEventListener('click', () => {
+            ensureAudioCtx();
             if (recognizer.listening) {
                 recognizer.stop();
             } else {
