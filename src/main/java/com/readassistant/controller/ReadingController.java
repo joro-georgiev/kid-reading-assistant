@@ -7,6 +7,9 @@ import com.readassistant.model.ReadingSession;
 import com.readassistant.repository.ReadingSessionRepository;
 import com.readassistant.service.StoryService;
 import com.readassistant.service.WordComparisonService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/reading")
 public class ReadingController {
 
+	private final Logger log = LoggerFactory.getLogger( getClass() );
+	
     private final StoryService storyService;
     private final WordComparisonService wordComparisonService;
     private final ReadingSessionRepository readingSessionRepository;
@@ -30,13 +35,16 @@ public class ReadingController {
 
     @PostMapping("/evaluate")
     public ReadingFeedback evaluate(@RequestBody ReadingSubmission submission) {
-        StoryDto story = storyService.getStory(submission.getStoryId());
+    	
+    	log.info( submission.toString() );
+    	
+        StoryDto story = storyService.getStory( submission.storyId() );
         ReadingFeedback feedback = wordComparisonService.evaluate(
-                story.getWords(), submission.getSpokenWords(), story.getLanguage()
+                story.getWords(), submission.spokenWords(), story.getLanguage()
         );
 
         readingSessionRepository.save(new ReadingSession(
-                submission.getStoryId(),
+                submission.storyId(),
                 feedback.getTotalWords(),
                 feedback.getCorrectWords(),
                 feedback.getScore()

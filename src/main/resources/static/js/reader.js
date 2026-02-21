@@ -1,8 +1,6 @@
 // Reading page controller
 
 (function () {
-    const MAX_LOOK_AHEAD = 3;
-
     let story = null;
     let wordElements = [];
     let currentExpectedIndex = 0;
@@ -75,36 +73,28 @@
         });
     }
 
-    // Handle a spoken word — real-time frontend matching
+    // Handle a spoken word — wait on each word until it is read correctly
     function handleSpokenWord(spokenWord) {
         if (currentExpectedIndex >= story.words.length) return;
 
+		console.log( spokenWord );
+		
         const spokenNorm = normalize(spokenWord);
         if (!spokenNorm) return;
 
-        // Look ahead up to MAX_LOOK_AHEAD words to find a match
-        for (let ahead = 0; ahead <= MAX_LOOK_AHEAD && currentExpectedIndex + ahead < story.words.length; ahead++) {
-            const expectedNorm = normalize(story.words[currentExpectedIndex + ahead]);
-            if (isCloseEnough(expectedNorm, spokenNorm)) {
-                // Mark skipped words as missed
-                for (let skip = 0; skip < ahead; skip++) {
-                    wordElements[currentExpectedIndex + skip].classList.remove('current');
-                    wordElements[currentExpectedIndex + skip].classList.add('missed');
-                }
-                // Mark matched word as correct
-                wordElements[currentExpectedIndex + ahead].classList.remove('current');
-                wordElements[currentExpectedIndex + ahead].classList.add('correct');
-                currentExpectedIndex = currentExpectedIndex + ahead + 1;
-                highlightCurrent();
+        const expectedNorm = normalize(story.words[currentExpectedIndex]);
+        if (isCloseEnough(expectedNorm, spokenNorm)) {
+            wordElements[currentExpectedIndex].classList.remove('current');
+            wordElements[currentExpectedIndex].classList.add('correct');
+            currentExpectedIndex++;
+            highlightCurrent();
 
-                // Update status
-                const remaining = story.words.length - currentExpectedIndex;
-                if (remaining > 0) {
-                    statusBar.textContent = t('read.wordsToGo', { remaining: remaining });
-                } else {
-                    statusBar.textContent = t('read.allWordsRead');
-                }
-                return;
+            // Update status
+            const remaining = story.words.length - currentExpectedIndex;
+            if (remaining > 0) {
+                statusBar.textContent = t('read.wordsToGo', { remaining: remaining });
+            } else {
+                statusBar.textContent = t('read.allWordsRead');
             }
         }
     }

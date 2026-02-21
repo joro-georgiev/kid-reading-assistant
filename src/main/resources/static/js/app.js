@@ -30,15 +30,12 @@ function createStoryCard(story) {
         ? story.content.substring(0, 80) + '...'
         : story.content;
 
-    const langBadge = story.language === 'bg' ? 'BG' : 'EN';
-
     card.innerHTML = `
         <div class="title">${story.title}</div>
         <div class="preview">${preview}</div>
         <span class="difficulty difficulty-${story.difficulty}">
             ${t('difficulty.' + story.difficulty)}
         </span>
-        <span class="lang-badge lang-${story.language}">${langBadge}</span>
     `;
 
     return card;
@@ -49,7 +46,8 @@ async function loadStoryGrid() {
     if (!grid) return;
 
     try {
-        const stories = await API.getStories();
+        const allStories = await API.getStories();
+        const stories = allStories.filter(s => s.language === getLang());
         grid.innerHTML = '';
         stories.forEach(story => {
             grid.appendChild(createStoryCard(story));

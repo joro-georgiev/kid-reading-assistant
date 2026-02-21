@@ -25,7 +25,7 @@ public class StoryController {
     }
 
     @GetMapping("/{id}")
-    public StoryDto getStory(@PathVariable Long id) {
+    public StoryDto getStory( @PathVariable Long id ) {
         return storyService.getStory(id);
     }
 }

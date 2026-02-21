@@ -11,7 +11,7 @@ class SpeechRecognizer {
         this.supported = true;
         this.recognition = new SpeechRecognition();
         this.recognition.continuous = true;
-        this.recognition.interimResults = true;
+        this.recognition.interimResults = false;
         this.recognition.lang = language;
 
         this.listening = false;

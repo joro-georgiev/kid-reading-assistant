@@ -124,19 +124,6 @@ body {
 .difficulty-2 { background: #ff9800; }
 .difficulty-3 { background: #f44336; }
 
-.lang-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 700;
-    color: white;
-    margin-left: 6px;
-}
-
-.lang-en { background: #2196f3; }
-.lang-bg { background: #9c27b0; }
-
 /* Section titles */
 .section-title {
     font-size: 26px;
