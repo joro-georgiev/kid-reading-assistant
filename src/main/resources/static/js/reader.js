@@ -5,6 +5,7 @@
     let wordElements = [];
     let currentExpectedIndex = 0;
     let recognizer = null;
+    let sessionPoints = 0;
 
     // DOM elements
     const storyTitle = document.getElementById('story-title');
@@ -87,6 +88,8 @@
             wordElements[currentExpectedIndex].classList.remove('current');
             wordElements[currentExpectedIndex].classList.add('correct');
             currentExpectedIndex++;
+            sessionPoints++;
+            updatePointsDisplay(addPoints(1));
             highlightCurrent();
 
             // Update status
@@ -119,7 +122,8 @@
 
             resultScore.textContent = Math.round(feedback.score) + '%';
             resultMessage.textContent = feedback.message;
-            resultStats.textContent = t('read.stats', { correct: feedback.correctWords, total: feedback.totalWords });
+            resultStats.textContent = t('read.stats', { correct: feedback.correctWords, total: feedback.totalWords })
+                + ' \u2014 ' + t('points.earned', { points: sessionPoints });
 
             readingArea.style.display = 'none';
             resultsPanel.style.display = 'block';
@@ -196,6 +200,7 @@
             resultsPanel.style.display = 'none';
             readingArea.style.display = 'block';
             currentExpectedIndex = 0;
+            sessionPoints = 0;
             wordElements.forEach(el => el.className = 'word');
             highlightCurrent();
             statusBar.textContent = t('read.wordCount', { count: story.words.length });

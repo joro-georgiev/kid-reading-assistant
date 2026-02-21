@@ -27,7 +27,9 @@ const TRANSLATIONS = {
         'read.storyLoadError': 'Could not load the story. Go back and try another one!',
         'read.storyLoading': 'Loading...',
         'read.micTitle': 'Start reading',
-        'read.speechWarning': 'Your browser does not support speech recognition. Please use Google Chrome for the best experience.'
+        'read.speechWarning': 'Your browser does not support speech recognition. Please use Google Chrome for the best experience.',
+        'points.total': '\u2b50 {points}',
+        'points.earned': '+{points} points this story!'
     },
     bg: {
         'title.home': 'Помощник за четене - Избери история!',
@@ -55,7 +57,9 @@ const TRANSLATIONS = {
         'read.storyLoadError': 'Историята не може да се зареди. Върни се и опитай друга!',
         'read.storyLoading': 'Зареждане...',
         'read.micTitle': 'Започни четене',
-        'read.speechWarning': 'Твоят браузър не поддържа разпознаване на реч. Моля, използвай Google Chrome.'
+        'read.speechWarning': 'Твоят браузър не поддържа разпознаване на реч. Моля, използвай Google Chrome.',
+        'points.total': '\u2b50 {points}',
+        'points.earned': '+{points} точки от тази история!'
     }
 };
 
@@ -102,6 +106,36 @@ function initLangToggle() {
     header.appendChild(toggle);
 }
 
+function getPoints() {
+    return parseInt(localStorage.getItem('readassistant-points'), 10) || 0;
+}
+
+function addPoints(amount) {
+    var total = getPoints() + amount;
+    localStorage.setItem('readassistant-points', total);
+    return total;
+}
+
+function initPointsDisplay() {
+    var header = document.querySelector('.header');
+    if (!header) return;
+
+    var display = document.createElement('div');
+    display.className = 'points-display';
+    display.textContent = t('points.total', { points: getPoints() });
+    header.appendChild(display);
+}
+
+function updatePointsDisplay(total) {
+    var display = document.querySelector('.points-display');
+    if (!display) return;
+    display.textContent = t('points.total', { points: total });
+    display.classList.remove('points-pop');
+    // Force reflow to restart animation
+    void display.offsetWidth;
+    display.classList.add('points-pop');
+}
+
 function localizeStaticElements() {
     // Localize elements with data-i18n attribute (text content)
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
@@ -125,5 +159,6 @@ function localizeStaticElements() {
 
 document.addEventListener('DOMContentLoaded', function () {
     initLangToggle();
+    initPointsDisplay();
     localizeStaticElements();
 });
