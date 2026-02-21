@@ -51,6 +51,7 @@ class SpeechRecognizer {
             // Auto-restart if we're still supposed to be listening
             // (kids pause a lot while reading)
             if (this.listening) {
+                lastProcessedIndex = 0;
                 try {
                     this.recognition.start();
                 } catch (e) {
