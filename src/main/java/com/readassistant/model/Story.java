@@ -24,6 +24,8 @@ public class Story {
 
     private String language = "en";
 
+    private String image;
+
     public Story() {
     }
 
@@ -79,5 +81,13 @@ public class Story {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="20" fill="#E0F7FA"/>
+  <!-- Tank -->
+  <rect x="30" y="40" width="140" height="120" rx="8" fill="#B3E5FC" opacity="0.5"/>
+  <rect x="30" y="40" width="140" height="120" rx="8" fill="none" stroke="#4FC3F7" stroke-width="3"/>
+  <!-- Tank stand -->
+  <rect x="45" y="160" width="110" height="8" rx="3" fill="#8D6E63"/>
+  <!-- Water surface -->
+  <path d="M33,55 Q60,48 85,55 Q115,62 140,55 Q155,50 167,55" fill="none" stroke="#4FC3F7" stroke-width="1.5" opacity="0.6"/>
+  <!-- Bubbles -->
+  <circle cx="120" cy="65" r="3" fill="none" stroke="#4FC3F7" stroke-width="1"/>
+  <circle cx="125" cy="55" r="4" fill="none" stroke="#4FC3F7" stroke-width="1"/>
+  <circle cx="118" cy="48" r="2.5" fill="none" stroke="#4FC3F7" stroke-width="1"/>
+  <!-- Fish body -->
+  <ellipse cx="95" cy="105" rx="30" ry="18" fill="#FF9800"/>
+  <!-- Fish tail -->
+  <polygon points="125,105 145,88 145,122" fill="#FF9800"/>
+  <polygon points="125,105 143,90 143,120" fill="#FFB74D"/>
+  <!-- Fins -->
+  <path d="M85,90 Q78,78 90,88" fill="#FFB74D"/>
+  <path d="M90,118 Q82,130 95,120" fill="#FFB74D"/>
+  <!-- Eye -->
+  <circle cx="78" cy="100" r="5" fill="white"/>
+  <circle cx="76" cy="99" r="3" fill="#333"/>
+  <circle cx="75" cy="98" r="1" fill="white"/>
+  <!-- Mouth -->
+  <circle cx="66" cy="106" r="2.5" fill="#E65100" opacity="0.5"/>
+  <!-- Scales -->
+  <path d="M85,98 Q95,95 105,98" fill="none" stroke="#E65100" stroke-width="1" opacity="0.3"/>
+  <path d="M82,105 Q95,102 108,105" fill="none" stroke="#E65100" stroke-width="1" opacity="0.3"/>
+  <path d="M85,112 Q95,109 105,112" fill="none" stroke="#E65100" stroke-width="1" opacity="0.3"/>
+  <!-- Gravel -->
+  <circle cx="45" cy="152" r="4" fill="#A1887F"/>
+  <circle cx="55" cy="154" r="5" fill="#BCAAA4"/>
+  <circle cx="67" cy="153" r="4" fill="#8D6E63"/>
+  <circle cx="80" cy="155" r="3" fill="#A1887F"/>
+  <circle cx="100" cy="153" r="5" fill="#BCAAA4"/>
+  <circle cx="115" cy="155" r="4" fill="#8D6E63"/>
+  <circle cx="130" cy="153" r="5" fill="#A1887F"/>
+  <circle cx="143" cy="155" r="3" fill="#BCAAA4"/>
+  <circle cx="155" cy="152" r="4" fill="#8D6E63"/>
+  <!-- Plant -->
+  <path d="M50,155 Q45,130 55,110" fill="none" stroke="#4CAF50" stroke-width="3" stroke-linecap="round"/>
+  <path d="M55,155 Q58,135 50,118" fill="none" stroke="#66BB6A" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M145,155 Q150,132 142,115" fill="none" stroke="#4CAF50" stroke-width="3" stroke-linecap="round"/>
+</svg>

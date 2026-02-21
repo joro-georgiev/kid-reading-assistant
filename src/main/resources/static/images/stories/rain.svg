@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="20" fill="#ECEFF1"/>
+  <!-- Rain clouds -->
+  <g fill="#90A4AE">
+    <circle cx="60" cy="40" r="20"/>
+    <circle cx="80" cy="32" r="24"/>
+    <circle cx="105" cy="38" r="20"/>
+    <circle cx="45" cy="45" r="15"/>
+    <circle cx="120" cy="44" r="16"/>
+  </g>
+  <!-- Rain drops -->
+  <g fill="#42A5F5" opacity="0.6">
+    <ellipse cx="40" cy="75" rx="1.5" ry="5"/>
+    <ellipse cx="60" cy="82" rx="1.5" ry="5"/>
+    <ellipse cx="80" cy="70" rx="1.5" ry="5"/>
+    <ellipse cx="100" cy="78" rx="1.5" ry="5"/>
+    <ellipse cx="120" cy="72" rx="1.5" ry="5"/>
+    <ellipse cx="140" cy="80" rx="1.5" ry="5"/>
+    <ellipse cx="50" cy="95" rx="1.5" ry="5"/>
+    <ellipse cx="90" cy="92" rx="1.5" ry="5"/>
+    <ellipse cx="130" cy="88" rx="1.5" ry="5"/>
+    <ellipse cx="160" cy="75" rx="1.5" ry="5"/>
+    <ellipse cx="70" cy="68" rx="1.5" ry="5"/>
+    <ellipse cx="110" cy="90" rx="1.5" ry="5"/>
+  </g>
+  <!-- Blanket fort -->
+  <polygon points="30,170 100,105 170,170" fill="#7E57C2"/>
+  <polygon points="30,170 100,105 170,170" fill="none" stroke="#5E35B1" stroke-width="2"/>
+  <!-- Fort pattern (stripes) -->
+  <line x1="55" y1="148" x2="145" y2="148" stroke="#9575CD" stroke-width="2" opacity="0.5"/>
+  <line x1="42" y1="158" x2="158" y2="158" stroke="#9575CD" stroke-width="2" opacity="0.5"/>
+  <!-- Fort entrance -->
+  <path d="M82,170 Q82,145 100,140 Q118,145 118,170" fill="#4A148C"/>
+  <!-- Warm light from inside -->
+  <path d="M85,170 Q85,150 100,145 Q115,150 115,170" fill="#FFE082" opacity="0.5"/>
+  <!-- Book peeking out -->
+  <rect x="92" y="158" width="12" height="9" rx="1" fill="#EF5350"/>
+  <line x1="98" y1="158" x2="98" y2="167" stroke="#C62828" stroke-width="0.5"/>
+  <!-- Hot chocolate -->
+  <rect x="140" y="155" width="14" height="12" rx="2" fill="#5D4037"/>
+  <path d="M154,158 Q160,160 154,164" fill="none" stroke="#5D4037" stroke-width="2"/>
+  <!-- Steam -->
+  <path d="M144,152 Q146,146 143,140" fill="none" stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M150,150 Q152,144 149,138" fill="none" stroke="#BDBDBD" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Ground -->
+  <rect x="0" y="170" width="200" height="30" fill="#A5D6A7"/>
+</svg>

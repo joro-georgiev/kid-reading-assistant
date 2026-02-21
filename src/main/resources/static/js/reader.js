@@ -142,6 +142,12 @@
         try {
             story = await API.getStory(storyId);
             storyTitle.textContent = story.title;
+            if (story.image) {
+                var storyImage = document.getElementById('story-image');
+                storyImage.src = story.image;
+                storyImage.alt = story.title;
+                storyImage.style.display = '';
+            }
             renderWords(story.words);
             statusBar.textContent = t('read.wordCount', { count: story.words.length });
         } catch (err) {

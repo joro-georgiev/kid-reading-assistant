@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="20" fill="#F3E5F5"/>
+  <!-- Sky -->
+  <circle cx="155" cy="30" r="15" fill="#FFC107" opacity="0.8"/>
+  <!-- Tree trunk -->
+  <rect x="25" y="80" width="16" height="100" fill="#8D6E63"/>
+  <rect x="33" y="110" width="40" height="8" rx="4" fill="#8D6E63" transform="rotate(-15, 33, 114)"/>
+  <!-- Tree leaves -->
+  <circle cx="33" cy="65" r="30" fill="#43A047"/>
+  <circle cx="15" cy="80" r="22" fill="#388E3C"/>
+  <circle cx="50" cy="75" r="25" fill="#2E7D32"/>
+  <circle cx="35" cy="50" r="20" fill="#4CAF50"/>
+  <!-- Branch for bird -->
+  <path d="M60,100 Q90,92 130,96" fill="none" stroke="#8D6E63" stroke-width="5" stroke-linecap="round"/>
+  <!-- Bird body -->
+  <ellipse cx="110" cy="82" rx="18" ry="14" fill="#42A5F5"/>
+  <!-- Bird belly -->
+  <ellipse cx="112" cy="86" rx="12" ry="9" fill="#FFD54F"/>
+  <!-- Bird head -->
+  <circle cx="126" cy="72" r="10" fill="#42A5F5"/>
+  <!-- Eye -->
+  <circle cx="129" cy="70" r="3" fill="white"/>
+  <circle cx="130" cy="69" r="1.8" fill="#333"/>
+  <circle cx="130.5" cy="68.5" r="0.7" fill="white"/>
+  <!-- Beak -->
+  <polygon points="136,72 144,70 136,75" fill="#FF9800"/>
+  <!-- Wing -->
+  <path d="M100,78 Q95,68 105,65 Q115,62 118,74" fill="#1E88E5"/>
+  <!-- Tail feathers -->
+  <path d="M92,82 L78,72 L80,80" fill="#1E88E5"/>
+  <path d="M92,85 L76,78 L80,85" fill="#42A5F5"/>
+  <!-- Bird legs -->
+  <line x1="106" y1="94" x2="106" y2="96" stroke="#FF9800" stroke-width="1.5"/>
+  <line x1="114" y1="94" x2="114" y2="96" stroke="#FF9800" stroke-width="1.5"/>
+  <!-- Musical notes -->
+  <g fill="#CE93D8">
+    <circle cx="148" cy="55" r="3"/>
+    <rect x="150.5" y="40" width="1.5" height="15"/>
+    <circle cx="160" cy="48" r="3"/>
+    <rect x="162.5" y="33" width="1.5" height="15"/>
+    <line x1="152" y1="40" x2="164" y2="33" stroke="#CE93D8" stroke-width="2"/>
+  </g>
+  <!-- Ground -->
+  <path d="M0,170 Q50,162 100,168 Q150,174 200,165 L200,200 L0,200 Z" fill="#A5D6A7"/>
+  <!-- Small flowers -->
+  <circle cx="80" cy="175" r="4" fill="#F48FB1"/>
+  <circle cx="80" cy="175" r="1.5" fill="#FFD54F"/>
+  <circle cx="160" cy="172" r="4" fill="#CE93D8"/>
+  <circle cx="160" cy="172" r="1.5" fill="#FFD54F"/>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="20" fill="#E8F5E9"/>
+  <!-- Sky -->
+  <circle cx="160" cy="35" r="18" fill="#FFC107"/>
+  <!-- Cloud -->
+  <g fill="white" opacity="0.8">
+    <circle cx="50" cy="35" r="12"/>
+    <circle cx="65" cy="30" r="15"/>
+    <circle cx="80" cy="35" r="12"/>
+  </g>
+  <!-- Ground -->
+  <rect x="0" y="145" width="200" height="55" rx="0" fill="#66BB6A"/>
+  <rect x="0" y="145" width="200" height="10" fill="#81C784"/>
+  <!-- Slide -->
+  <rect x="30" y="80" width="6" height="65" fill="#8D6E63"/>
+  <rect x="70" y="100" width="6" height="45" fill="#8D6E63"/>
+  <line x1="33" y1="80" x2="73" y2="100" stroke="#F44336" stroke-width="5" stroke-linecap="round"/>
+  <!-- Slide surface -->
+  <path d="M36,82 L76,102 L76,108 L36,88 Z" fill="#EF5350"/>
+  <!-- Ladder -->
+  <line x1="30" y1="85" x2="30" y2="145" stroke="#8D6E63" stroke-width="3"/>
+  <line x1="22" y1="85" x2="22" y2="145" stroke="#8D6E63" stroke-width="3"/>
+  <line x1="22" y1="95" x2="30" y2="95" stroke="#8D6E63" stroke-width="2"/>
+  <line x1="22" y1="110" x2="30" y2="110" stroke="#8D6E63" stroke-width="2"/>
+  <line x1="22" y1="125" x2="30" y2="125" stroke="#8D6E63" stroke-width="2"/>
+  <!-- Swings -->
+  <rect x="120" y="60" width="60" height="5" rx="2" fill="#8D6E63"/>
+  <rect x="125" y="65" width="4" height="80" fill="#8D6E63"/>
+  <rect x="172" y="65" width="4" height="80" fill="#8D6E63"/>
+  <!-- Swing ropes and seat -->
+  <line x1="140" y1="60" x2="136" y2="120" stroke="#555" stroke-width="2"/>
+  <line x1="155" y1="60" x2="151" y2="120" stroke="#555" stroke-width="2"/>
+  <rect x="133" y="120" width="21" height="4" rx="2" fill="#42A5F5"/>
+  <!-- Tree -->
+  <rect x="95" y="100" width="10" height="45" fill="#8D6E63"/>
+  <circle cx="100" cy="85" r="22" fill="#43A047"/>
+  <circle cx="88" cy="92" r="15" fill="#388E3C"/>
+  <circle cx="112" cy="90" r="16" fill="#2E7D32"/>
+</svg>

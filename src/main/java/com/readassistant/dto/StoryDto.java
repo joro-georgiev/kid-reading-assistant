@@ -9,17 +9,19 @@ public class StoryDto {
     private String content;
     private int difficulty;
     private String language;
+    private String image;
     private List<String> words;
 
     public StoryDto() {
     }
 
-    public StoryDto(Long id, String title, String content, int difficulty, String language, List<String> words) {
+    public StoryDto(Long id, String title, String content, int difficulty, String language, String image, List<String> words) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.difficulty = difficulty;
         this.language = language;
+        this.image = image;
         this.words = words;
     }
 
@@ -61,6 +63,14 @@ public class StoryDto {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public List<String> getWords() {

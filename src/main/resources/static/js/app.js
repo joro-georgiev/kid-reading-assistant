@@ -30,7 +30,12 @@ function createStoryCard(story) {
         ? story.content.substring(0, 80) + '...'
         : story.content;
 
+    const imageHtml = story.image
+        ? `<img class="story-image" src="${story.image}" alt="${story.title}">`
+        : '';
+
     card.innerHTML = `
+        ${imageHtml}
         <div class="title">${story.title}</div>
         <div class="preview">${preview}</div>
         <span class="difficulty difficulty-${story.difficulty}">

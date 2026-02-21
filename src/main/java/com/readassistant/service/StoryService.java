@@ -38,6 +38,7 @@ public class StoryService {
                 story.getContent(),
                 story.getDifficulty(),
                 story.getLanguage(),
+                story.getImage(),
                 words
         );
     }
