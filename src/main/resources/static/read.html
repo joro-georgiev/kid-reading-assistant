@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-i18n-title="title.read">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,43 +8,44 @@
 </head>
 <body>
     <div class="header">
-        <a href="/">Reading Assistant</a>
+        <a href="/" data-i18n="header.appName">Reading Assistant</a>
     </div>
 
     <div class="container">
-        <div class="speech-warning" id="speech-warning">
+        <div class="speech-warning" id="speech-warning" data-i18n="read.speechWarning">
             Your browser does not support speech recognition.
             Please use Google Chrome for the best experience.
         </div>
 
         <div class="reading-area" id="reading-area">
-            <div class="story-title" id="story-title">Loading...</div>
+            <div class="story-title" id="story-title" data-i18n="read.storyLoading">Loading...</div>
             <div class="word-display" id="word-display"></div>
 
             <div class="mic-container">
-                <button class="mic-btn" id="mic-btn" title="Start reading">
+                <button class="mic-btn" id="mic-btn" title="Start reading" data-i18n-title="read.micTitle">
                     &#127908;
                 </button>
-                <span class="mic-label" id="mic-label">Tap to start reading!</span>
+                <span class="mic-label" id="mic-label" data-i18n="read.tapToStart">Tap to start reading!</span>
             </div>
 
             <div class="status-bar" id="status-bar"></div>
 
             <div style="text-align: center;">
-                <button class="done-btn" id="done-btn">I'm Done!</button>
+                <button class="done-btn" id="done-btn" data-i18n="read.doneBtn">I'm Done!</button>
             </div>
         </div>
 
         <div class="results-panel" id="results-panel">
-            <div class="section-title">Great Reading!</div>
+            <div class="section-title" data-i18n="read.greatReading">Great Reading!</div>
             <div class="score" id="result-score"></div>
             <div class="message" id="result-message"></div>
             <div class="stats" id="result-stats"></div>
-            <button class="try-again-btn" id="try-again-btn">Try Again</button>
-            <a href="/" class="home-btn">Pick Another Story</a>
+            <button class="try-again-btn" id="try-again-btn" data-i18n="read.tryAgain">Try Again</button>
+            <a href="/" class="home-btn" data-i18n="read.pickAnother">Pick Another Story</a>
         </div>
     </div>
 
+    <script src="/js/i18n.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/speech.js"></script>
     <script src="/js/reader.js"></script>

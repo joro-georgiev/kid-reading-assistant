@@ -100,9 +100,9 @@
                 // Update status
                 const remaining = story.words.length - currentExpectedIndex;
                 if (remaining > 0) {
-                    statusBar.textContent = `${remaining} words to go!`;
+                    statusBar.textContent = t('read.wordsToGo', { remaining: remaining });
                 } else {
-                    statusBar.textContent = 'You read all the words!';
+                    statusBar.textContent = t('read.allWordsRead');
                 }
                 return;
             }
@@ -113,9 +113,9 @@
     async function finishReading() {
         recognizer.stop();
         micBtn.classList.remove('listening');
-        micLabel.textContent = 'Tap to start reading!';
+        micLabel.textContent = t('read.tapToStart');
         doneBtn.style.display = 'none';
-        statusBar.textContent = 'Checking your reading...';
+        statusBar.textContent = t('read.checking');
 
         try {
             const feedback = await API.evaluateReading(story.id, recognizer.getSpokenWords());
@@ -129,12 +129,12 @@
 
             resultScore.textContent = Math.round(feedback.score) + '%';
             resultMessage.textContent = feedback.message;
-            resultStats.textContent = `${feedback.correctWords} out of ${feedback.totalWords} words`;
+            resultStats.textContent = t('read.stats', { correct: feedback.correctWords, total: feedback.totalWords });
 
             readingArea.style.display = 'none';
             resultsPanel.style.display = 'block';
         } catch (err) {
-            statusBar.textContent = 'Could not get results. Please try again.';
+            statusBar.textContent = t('read.resultError');
             doneBtn.style.display = 'block';
         }
     }
@@ -153,10 +153,10 @@
             story = await API.getStory(storyId);
             storyTitle.textContent = story.title;
             renderWords(story.words);
-            statusBar.textContent = `${story.words.length} words - you can do it!`;
+            statusBar.textContent = t('read.wordCount', { count: story.words.length });
         } catch (err) {
-            storyTitle.textContent = 'Story not found';
-            wordDisplay.textContent = 'Could not load the story. Go back and try another one!';
+            storyTitle.textContent = t('read.storyNotFound');
+            wordDisplay.textContent = t('read.storyLoadError');
             return;
         }
 
@@ -172,11 +172,11 @@
         recognizer.onStateChange = (listening) => {
             if (listening) {
                 micBtn.classList.add('listening');
-                micLabel.textContent = 'Listening... read aloud!';
+                micLabel.textContent = t('read.listening');
                 doneBtn.style.display = 'block';
             } else {
                 micBtn.classList.remove('listening');
-                micLabel.textContent = 'Tap to start reading!';
+                micLabel.textContent = t('read.tapToStart');
             }
         };
 
@@ -202,7 +202,7 @@
             currentExpectedIndex = 0;
             wordElements.forEach(el => el.className = 'word');
             highlightCurrent();
-            statusBar.textContent = `${story.words.length} words - you can do it!`;
+            statusBar.textContent = t('read.wordCount', { count: story.words.length });
         });
     }
 

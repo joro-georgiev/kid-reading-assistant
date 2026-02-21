@@ -21,12 +21,6 @@ const API = {
     }
 };
 
-const DIFFICULTY_LABELS = {
-    1: 'Easy',
-    2: 'Medium',
-    3: 'Challenge'
-};
-
 function createStoryCard(story) {
     const card = document.createElement('div');
     card.className = 'story-card';
@@ -42,7 +36,7 @@ function createStoryCard(story) {
         <div class="title">${story.title}</div>
         <div class="preview">${preview}</div>
         <span class="difficulty difficulty-${story.difficulty}">
-            ${DIFFICULTY_LABELS[story.difficulty] || 'Level ' + story.difficulty}
+            ${t('difficulty.' + story.difficulty)}
         </span>
         <span class="lang-badge lang-${story.language}">${langBadge}</span>
     `;
@@ -61,7 +55,7 @@ async function loadStoryGrid() {
             grid.appendChild(createStoryCard(story));
         });
     } catch (err) {
-        grid.innerHTML = '<div class="loading">Could not load stories. Is the server running?</div>';
+        grid.innerHTML = '<div class="loading">' + t('home.loadError') + '</div>';
     }
 }
 
