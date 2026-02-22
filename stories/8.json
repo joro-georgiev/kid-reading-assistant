@@ -1,0 +1,12 @@
+{
+  "difficulty": 3,
+  "image": "images/stories/bird.svg",
+  "en": {
+    "title": "The Little Bird",
+    "content": "A little bird sat on a tree. It sang a pretty song. The bird was blue and yellow. It flew down to get some food. Then it flew back up to its nest. The little bird was happy in its home."
+  },
+  "bg": {
+    "title": "Малката птичка",
+    "content": "Една малка птичка кацна на дърво. Тя пееше красива песен. Птичката беше синя и жълта. Тя долетя да вземе храна. После се върна в гнездото си. Малката птичка беше щастлива в дома си."
+  }
+}

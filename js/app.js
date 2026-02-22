@@ -1,39 +1,44 @@
 // Story data loading and story list page controller
 
-let _indexCache = {};
+let _indexCache = null;
 
-async function loadIndex(lang) {
-    if (_indexCache[lang]) return _indexCache[lang];
-    const res = await fetch(`stories/${lang}/index.json`);
-    const stories = await res.json();
-    stories.forEach((s, i) => {
-        s.id = i;
-        s.language = lang;
-    });
-    _indexCache[lang] = stories;
-    return stories;
+function resolveStory(raw, lang, id) {
+    const loc = raw[lang];
+    return {
+        id: id,
+        language: lang,
+        title: loc.title,
+        content: loc.content,
+        difficulty: raw.difficulty,
+        image: raw.image,
+        words: loc.content.split(/\s+/)
+    };
+}
+
+async function loadIndex() {
+    if (_indexCache) return _indexCache;
+    const res = await fetch('stories/index.json');
+    _indexCache = await res.json();
+    return _indexCache;
 }
 
 const API = {
-    async getStories() {
-        return loadIndex(getLang());
+    async getStories(lang) {
+        const index = await loadIndex();
+        return index.map((s, i) => resolveStory(s, lang, i));
     },
 
-    async getStory(lang, id) {
-        const res = await fetch(`stories/${lang}/${id}.json`);
+    async getStory(id) {
+        const res = await fetch(`stories/${id}.json`);
         if (!res.ok) throw new Error('Story not found');
-        const story = await res.json();
-        story.id = Number(id);
-        story.language = lang;
-        story.words = story.content.split(/\s+/);
-        return story;
+        return res.json();
     }
 };
 
 function createStoryCard(story) {
     const card = document.createElement('div');
     card.className = 'story-card';
-    card.onclick = () => window.location.href = `read.html?lang=${story.language}&id=${story.id}`;
+    card.onclick = () => window.location.href = `read.html?id=${story.id}`;
 
     const preview = story.content.length > 80
         ? story.content.substring(0, 80) + '...'
@@ -60,7 +65,7 @@ async function loadStoryGrid() {
     if (!grid) return;
 
     try {
-        const stories = await API.getStories();
+        const stories = await API.getStories(getLang());
         grid.innerHTML = '';
         stories.forEach(story => {
             grid.appendChild(createStoryCard(story));

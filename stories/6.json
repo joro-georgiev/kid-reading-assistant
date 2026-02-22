@@ -1,0 +1,12 @@
+{
+  "difficulty": 2,
+  "image": "images/stories/park.svg",
+  "en": {
+    "title": "A Day at the Park",
+    "content": "I went to the park with my mom. We saw a big slide. I went down the slide fast. Then I played on the swings. My mom pushed me high. We had so much fun at the park."
+  },
+  "bg": {
+    "title": "Ден в парка",
+    "content": "Отидох в парка с мама. Видяхме голяма пързалка. Пързалях се бързо надолу. После играх на люлките. Мама ме люлееше високо. Много се забавлявахме в парка."
+  }
+}

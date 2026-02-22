@@ -1,0 +1,12 @@
+{
+  "difficulty": 1,
+  "image": "images/stories/apple.svg",
+  "en": {
+    "title": "The Red Apple",
+    "content": "I see a red apple. It is on the tree. I pick the apple. I bite the apple. It is sweet. I like apples."
+  },
+  "bg": {
+    "title": "Червената ябълка",
+    "content": "Виждам червена ябълка. Тя е на дървото. Бера ябълката. Хапвам от нея. Тя е сладка. Харесвам ябълки."
+  }
+}

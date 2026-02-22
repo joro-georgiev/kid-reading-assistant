@@ -1,0 +1,12 @@
+{
+  "difficulty": 1,
+  "image": "images/stories/dog.svg",
+  "en": {
+    "title": "My Dog",
+    "content": "I have a dog. My dog is fun. He can run fast. He wags his tail. I pat my dog. He licks my hand."
+  },
+  "bg": {
+    "title": "Моето куче",
+    "content": "Имам куче. То е весело. Тича бързо. Маха опашка. Галя кучето. То ме лиже по ръката."
+  }
+}

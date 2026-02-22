@@ -1,0 +1,12 @@
+{
+  "difficulty": 1,
+  "image": "images/stories/sun.svg",
+  "en": {
+    "title": "The Sun",
+    "content": "The sun is up. It is hot. I can see the sun. The sun is big. I like the sun. It makes me warm."
+  },
+  "bg": {
+    "title": "Слънцето",
+    "content": "Слънцето грее. То е топло. Виждам слънцето. То е голямо. Харесвам слънцето. То ме топли."
+  }
+}

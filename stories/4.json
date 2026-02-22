@@ -1,0 +1,12 @@
+{
+  "difficulty": 1,
+  "image": "images/stories/frog.svg",
+  "en": {
+    "title": "The Frog",
+    "content": "A frog sits on a log. The frog is green. It can hop. Hop hop hop. The frog hops in the pond. Splash!"
+  },
+  "bg": {
+    "title": "Жабката",
+    "content": "Жаба седи на дънер. Жабата е зелена. Тя може да скача. Скок скок скок. Жабата скача в езерото. Цоп!"
+  }
+}

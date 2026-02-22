@@ -238,7 +238,7 @@
     // Initialize
     async function init() {
         const params = new URLSearchParams(window.location.search);
-        const lang = params.get('lang') || getLang();
+        const lang = getLang();
         const storyId = params.get('id');
         if (!storyId) {
             window.location.href = 'index.html';
@@ -247,7 +247,8 @@
 
         // Load story
         try {
-            story = await API.getStory(lang, storyId);
+            const raw = await API.getStory(storyId);
+            story = resolveStory(raw, lang, Number(storyId));
             storyTitle.textContent = story.title;
             if (story.image) {
                 var storyImage = document.getElementById('story-image');

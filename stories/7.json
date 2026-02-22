@@ -1,0 +1,12 @@
+{
+  "difficulty": 2,
+  "image": "images/stories/fish.svg",
+  "en": {
+    "title": "My Pet Fish",
+    "content": "I have a pet fish. His name is Bubbles. He lives in a tank. I feed him every day. He swims round and round. Bubbles is my best friend."
+  },
+  "bg": {
+    "title": "Моята рибка",
+    "content": "Имам рибка. Казва се Балончо. Живее в аквариум. Храня я всеки ден. Тя плува насам натам. Балончо е моят най-добър приятел."
+  }
+}
