@@ -141,8 +141,6 @@
     // Handle a spoken word — wait on each word until it is read correctly
     function handleSpokenWord(spokenWord) {
         if (currentExpectedIndex >= story.words.length) return;
-
-		console.log( spokenWord );
 		
         const spokenNorm = normalize(spokenWord);
         if (!spokenNorm) return;
