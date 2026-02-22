@@ -75,7 +75,7 @@
     const storyTitle = document.getElementById('story-title');
     const wordDisplay = document.getElementById('word-display');
     const micBtn = document.getElementById('mic-btn');
-    const micLabel = document.getElementById('mic-label');
+
     const statusBar = document.getElementById('status-bar');
     const doneBtn = document.getElementById('done-btn');
     const readingArea = document.getElementById('reading-area');
@@ -172,7 +172,6 @@
     async function finishReading() {
         recognizer.stop();
         micBtn.classList.remove('listening');
-        micLabel.textContent = t('read.tapToStart');
         doneBtn.style.display = 'none';
         statusBar.textContent = t('read.checking');
 
@@ -238,11 +237,9 @@
         recognizer.onStateChange = (listening) => {
             if (listening) {
                 micBtn.classList.add('listening');
-                micLabel.textContent = t('read.listening');
                 doneBtn.style.display = 'block';
             } else {
                 micBtn.classList.remove('listening');
-                micLabel.textContent = t('read.tapToStart');
             }
         };
 
