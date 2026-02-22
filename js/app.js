@@ -1,27 +1,27 @@
 // Story data loading and story list page controller
 
-let _storiesCache = null;
+let _storiesCache = {};
 
-async function loadAllStories() {
-    if (_storiesCache) return _storiesCache;
-    const res = await fetch('stories.json');
+async function loadStories(lang) {
+    if (_storiesCache[lang]) return _storiesCache[lang];
+    const res = await fetch(`stories/${lang}.json`);
     const stories = await res.json();
-    // Assign index-based IDs and split content into words
     stories.forEach((s, i) => {
         s.id = i;
+        s.language = lang;
         s.words = s.content.split(/\s+/);
     });
-    _storiesCache = stories;
+    _storiesCache[lang] = stories;
     return stories;
 }
 
 const API = {
     async getStories() {
-        return loadAllStories();
+        return loadStories(getLang());
     },
 
-    async getStory(id) {
-        const stories = await loadAllStories();
+    async getStory(lang, id) {
+        const stories = await loadStories(lang);
         const story = stories[Number(id)];
         if (!story) throw new Error('Story not found');
         return story;
@@ -31,7 +31,7 @@ const API = {
 function createStoryCard(story) {
     const card = document.createElement('div');
     card.className = 'story-card';
-    card.onclick = () => window.location.href = `read.html?id=${story.id}`;
+    card.onclick = () => window.location.href = `read.html?lang=${story.language}&id=${story.id}`;
 
     const preview = story.content.length > 80
         ? story.content.substring(0, 80) + '...'
@@ -58,8 +58,7 @@ async function loadStoryGrid() {
     if (!grid) return;
 
     try {
-        const allStories = await API.getStories();
-        const stories = allStories.filter(s => s.language === getLang());
+        const stories = await API.getStories();
         grid.innerHTML = '';
         stories.forEach(story => {
             grid.appendChild(createStoryCard(story));
