@@ -17,8 +17,13 @@ function resolveStory(raw, lang, id) {
 
 async function loadIndex() {
     if (_indexCache) return _indexCache;
-    const res = await fetch('stories/index.json');
-    _indexCache = await res.json();
+    const stories = [];
+    for (let i = 0; ; i++) {
+        const res = await fetch(`stories/${i}.json`);
+        if (!res.ok) break;
+        stories.push(await res.json());
+    }
+    _indexCache = stories;
     return _indexCache;
 }
 
@@ -29,9 +34,10 @@ const API = {
     },
 
     async getStory(id) {
-        const res = await fetch(`stories/${id}.json`);
-        if (!res.ok) throw new Error('Story not found');
-        return res.json();
+        const index = await loadIndex();
+        const story = index[id];
+        if (!story) throw new Error('Story not found');
+        return story;
     }
 };
 
