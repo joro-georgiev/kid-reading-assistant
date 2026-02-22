@@ -252,9 +252,6 @@
             if (recognizer.listening) {
                 recognizer.stop();
             } else {
-                currentExpectedIndex = 0;
-                wordElements.forEach(el => el.className = 'word');
-                highlightCurrent();
                 recognizer.start();
             }
         });

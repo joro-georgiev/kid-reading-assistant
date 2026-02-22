@@ -124,7 +124,6 @@ class SpeechRecognizer {
 
     start() {
         if (!this.supported) return;
-        this.allWords = [];
         this.listening = true;
         this._lastEventTime = Date.now();
         try {
