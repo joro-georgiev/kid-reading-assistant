@@ -168,36 +168,6 @@
         }
     }
 
-    // Evaluate reading locally (port of backend WordComparisonService)
-    function evaluateReading(expectedWords, spokenWords, language) {
-        const MAX_LOOK_AHEAD = 3;
-        const wordResults = [];
-        let spokenIndex = 0;
-
-        for (const expected of expectedWords) {
-            const cleanExpected = normalize(expected);
-            let matched = false;
-
-            for (let ahead = 0; ahead <= MAX_LOOK_AHEAD && spokenIndex + ahead < spokenWords.length; ahead++) {
-                const spoken = normalize(spokenWords[spokenIndex + ahead]);
-                if (isCloseEnough(cleanExpected, spoken)) {
-                    matched = true;
-                    spokenIndex = spokenIndex + ahead + 1;
-                    break;
-                }
-            }
-
-            wordResults.push({ word: expected, correct: matched });
-        }
-
-        const totalWords = expectedWords.length;
-        const correctWords = wordResults.filter(r => r.correct).length;
-        const score = totalWords > 0 ? Math.round(correctWords / totalWords * 100) : 0;
-        const message = generateMessage(score, language);
-
-        return { totalWords, correctWords, score, message, wordResults };
-    }
-
     function generateMessage(score, language) {
         if (language === 'bg') {
             if (score >= 90) return 'Страхотна работа! Ти си супер четец!';
@@ -211,24 +181,25 @@
         return 'Nice effort! Keep practicing and you will be a great reader!';
     }
 
-    // Finish reading and evaluate locally
+    // Finish reading — use real-time tracking results
     function finishReading() {
         recognizer.stop();
         micBtn.classList.remove('listening');
         doneBtn.style.display = 'none';
 
-        const feedback = evaluateReading(story.words, recognizer.getSpokenWords(), story.language);
+        const totalWords = story.words.length;
+        const correctWords = currentExpectedIndex;
 
-        // Update word highlights from results
-        feedback.wordResults.forEach((result, i) => {
-            if (i < wordElements.length) {
-                wordElements[i].className = 'word ' + (result.correct ? 'correct' : 'missed');
-            }
-        });
+        // Mark unread words as missed
+        for (let i = currentExpectedIndex; i < wordElements.length; i++) {
+            wordElements[i].className = 'word missed';
+        }
 
-        resultScore.textContent = Math.round(feedback.score) + '%';
-        resultMessage.textContent = feedback.message;
-        resultStats.textContent = t('read.stats', { correct: feedback.correctWords, total: feedback.totalWords })
+        const score = totalWords > 0 ? Math.round(correctWords / totalWords * 100) : 0;
+
+        resultScore.textContent = score + '%';
+        resultMessage.textContent = generateMessage(score, story.language);
+        resultStats.textContent = t('read.stats', { correct: correctWords, total: totalWords })
             + ' \u2014 ' + t('points.earned', { points: sessionPoints });
 
         readingArea.style.display = 'none';
