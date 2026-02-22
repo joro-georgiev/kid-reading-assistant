@@ -73,6 +73,18 @@
   },
   {
     "difficulty": 2,
+    "image": "images/stories/sister.svg",
+    "en": {
+      "title": "My sister",
+      "content": "I have a little sister. Her name is Nadya. We play together every day. Sometimes we fight, but we love each other very much."
+    },
+    "bg": {
+      "title": "Моята сестра",
+      "content": "Аз имам малка сестра. Тя се казва Надя. Ние си играем всеки ден. Понякога се караме, но много се обичаме."
+    }
+  },
+  {
+    "difficulty": 2,
     "image": "images/stories/park.svg",
     "en": {
       "title": "A Day at the Park",

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="20" fill="#FCE4EC"/>
+  <!-- Big kid (narrator) -->
+  <!-- Body -->
+  <rect x="50" y="110" width="40" height="50" rx="10" fill="#42A5F5"/>
+  <!-- Head -->
+  <circle cx="70" cy="90" r="22" fill="#FFCC80"/>
+  <!-- Hair -->
+  <path d="M48,85 Q50,62 70,60 Q90,62 92,85" fill="#5D4037"/>
+  <!-- Eyes -->
+  <circle cx="63" cy="88" r="3" fill="#333"/>
+  <circle cx="77" cy="88" r="3" fill="#333"/>
+  <circle cx="64" cy="87" r="1" fill="white"/>
+  <circle cx="78" cy="87" r="1" fill="white"/>
+  <!-- Smile -->
+  <path d="M63,96 Q70,102 77,96" fill="none" stroke="#E65100" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Arms -->
+  <line x1="50" y1="120" x2="38" y2="135" stroke="#42A5F5" stroke-width="8" stroke-linecap="round"/>
+  <line x1="90" y1="120" x2="102" y2="115" stroke="#42A5F5" stroke-width="8" stroke-linecap="round"/>
+  <!-- Legs -->
+  <line x1="60" y1="158" x2="58" y2="175" stroke="#333" stroke-width="6" stroke-linecap="round"/>
+  <line x1="80" y1="158" x2="82" y2="175" stroke="#333" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Little sister (Nadya) -->
+  <!-- Body -->
+  <rect x="110" y="120" width="35" height="42" rx="10" fill="#EF5350"/>
+  <!-- Head -->
+  <circle cx="127" cy="102" r="18" fill="#FFCC80"/>
+  <!-- Hair with pigtails -->
+  <path d="M109,98 Q111,78 127,76 Q143,78 145,98" fill="#5D4037"/>
+  <circle cx="109" cy="88" r="6" fill="#5D4037"/>
+  <circle cx="145" cy="88" r="6" fill="#5D4037"/>
+  <!-- Hair ties -->
+  <circle cx="109" cy="88" r="3" fill="#E91E63"/>
+  <circle cx="145" cy="88" r="3" fill="#E91E63"/>
+  <!-- Eyes -->
+  <circle cx="121" cy="100" r="2.5" fill="#333"/>
+  <circle cx="133" cy="100" r="2.5" fill="#333"/>
+  <circle cx="122" cy="99" r="1" fill="white"/>
+  <circle cx="134" cy="99" r="1" fill="white"/>
+  <!-- Smile -->
+  <path d="M121,107 Q127,112 133,107" fill="none" stroke="#E65100" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Arms -->
+  <line x1="110" y1="128" x2="102" y2="122" stroke="#EF5350" stroke-width="6" stroke-linecap="round"/>
+  <line x1="145" y1="128" x2="155" y2="140" stroke="#EF5350" stroke-width="6" stroke-linecap="round"/>
+  <!-- Legs -->
+  <line x1="120" y1="160" x2="118" y2="175" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+  <line x1="135" y1="160" x2="137" y2="175" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Heart between them -->
+  <path d="M98,108 Q98,100 104,100 Q110,100 110,108 Q110,100 116,100 Q122,100 122,108 Q122,118 110,126 Q98,118 98,108Z" fill="#E91E63" opacity="0.6"/>
+</svg>
