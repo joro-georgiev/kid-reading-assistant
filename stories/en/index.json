@@ -1,0 +1,62 @@
+[
+  {
+    "title": "My Cat",
+    "difficulty": 1,
+    "image": "images/stories/cat.svg",
+    "content": "I have a cat. My cat is big. My cat is soft. I love my cat. My cat loves me. We play all day."
+  },
+  {
+    "title": "The Sun",
+    "difficulty": 1,
+    "image": "images/stories/sun.svg",
+    "content": "The sun is up. It is hot. I can see the sun. The sun is big. I like the sun. It makes me warm."
+  },
+  {
+    "title": "My Dog",
+    "difficulty": 1,
+    "image": "images/stories/dog.svg",
+    "content": "I have a dog. My dog is fun. He can run fast. He wags his tail. I pat my dog. He licks my hand."
+  },
+  {
+    "title": "The Red Apple",
+    "difficulty": 1,
+    "image": "images/stories/apple.svg",
+    "content": "I see a red apple. It is on the tree. I pick the apple. I bite the apple. It is sweet. I like apples."
+  },
+  {
+    "title": "The Frog",
+    "difficulty": 1,
+    "image": "images/stories/frog.svg",
+    "content": "A frog sits on a log. The frog is green. It can hop. Hop hop hop. The frog hops in the pond. Splash!"
+  },
+  {
+    "title": "My Ball",
+    "difficulty": 1,
+    "image": "images/stories/ball.svg",
+    "content": "I have a ball. My ball is red. I kick the ball. It goes far. I run to get it. I kick it again."
+  },
+  {
+    "title": "A Day at the Park",
+    "difficulty": 2,
+    "image": "images/stories/park.svg",
+    "content": "I went to the park with my mom. We saw a big slide. I went down the slide fast. Then I played on the swings. My mom pushed me high. We had so much fun at the park."
+  },
+  {
+    "title": "My Pet Fish",
+    "difficulty": 2,
+    "image": "images/stories/fish.svg",
+    "content": "I have a pet fish. His name is Bubbles. He lives in a tank. I feed him every day. He swims round and round. Bubbles is my best friend."
+  },
+  {
+    "title": "The Little Bird",
+    "difficulty": 3,
+    "image": "images/stories/bird.svg",
+    "content": "A little bird sat on a tree. It sang a pretty song. The bird was blue and yellow. It flew down to get some food. Then it flew back up to its nest. The little bird was happy in its home."
+  },
+  {
+    "title": "Rainy Day Fun",
+    "difficulty": 3,
+    "image": "images/stories/rain.svg",
+    "content": "It was raining outside so we stayed inside. My sister and I made a big fort with blankets. We read books and told funny stories. Mom made us hot chocolate with marshmallows. Rainy days can be so much fun when you use your imagination."
+  }
+]

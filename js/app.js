@@ -1,29 +1,31 @@
 // Story data loading and story list page controller
 
-let _storiesCache = {};
+let _indexCache = {};
 
-async function loadStories(lang) {
-    if (_storiesCache[lang]) return _storiesCache[lang];
-    const res = await fetch(`stories/${lang}.json`);
+async function loadIndex(lang) {
+    if (_indexCache[lang]) return _indexCache[lang];
+    const res = await fetch(`stories/${lang}/index.json`);
     const stories = await res.json();
     stories.forEach((s, i) => {
         s.id = i;
         s.language = lang;
-        s.words = s.content.split(/\s+/);
     });
-    _storiesCache[lang] = stories;
+    _indexCache[lang] = stories;
     return stories;
 }
 
 const API = {
     async getStories() {
-        return loadStories(getLang());
+        return loadIndex(getLang());
     },
 
     async getStory(lang, id) {
-        const stories = await loadStories(lang);
-        const story = stories[Number(id)];
-        if (!story) throw new Error('Story not found');
+        const res = await fetch(`stories/${lang}/${id}.json`);
+        if (!res.ok) throw new Error('Story not found');
+        const story = await res.json();
+        story.id = Number(id);
+        story.language = lang;
+        story.words = story.content.split(/\s+/);
         return story;
     }
 };
