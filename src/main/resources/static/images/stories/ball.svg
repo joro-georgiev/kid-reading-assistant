@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="20" fill="#F3E5F5"/>
+  <!-- Shadow -->
+  <ellipse cx="100" cy="170" rx="40" ry="8" fill="#CE93D8" opacity="0.3"/>
+  <!-- Ball -->
+  <circle cx="100" cy="105" r="50" fill="#FF7043"/>
+  <!-- Stripes -->
+  <path d="M60,80 Q100,60 140,80" fill="none" stroke="#FF8A65" stroke-width="6"/>
+  <path d="M55,105 Q100,85 145,105" fill="none" stroke="#FFAB91" stroke-width="4"/>
+  <path d="M60,130 Q100,145 140,130" fill="none" stroke="#FF8A65" stroke-width="6"/>
+  <!-- Star decoration -->
+  <polygon points="100,75 104,87 117,87 107,95 110,107 100,99 90,107 93,95 83,87 96,87" fill="#FFF9C4" opacity="0.7"/>
+  <!-- Highlight -->
+  <circle cx="82" cy="85" r="12" fill="white" opacity="0.25"/>
+  <circle cx="78" cy="82" r="6" fill="white" opacity="0.3"/>
+  <!-- Bounce lines -->
+  <line x1="85" y1="160" x2="80" y2="165" stroke="#CE93D8" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <line x1="100" y1="158" x2="100" y2="164" stroke="#CE93D8" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <line x1="115" y1="160" x2="120" y2="165" stroke="#CE93D8" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+</svg>

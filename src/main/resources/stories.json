@@ -14,6 +14,34 @@
     "image": "/images/stories/sun.svg"
   },
   {
+    "title": "My Dog",
+    "content": "I have a dog. My dog is fun. He can run fast. He wags his tail. I pat my dog. He licks my hand.",
+    "difficulty": 1,
+    "language": "en",
+    "image": "/images/stories/dog.svg"
+  },
+  {
+    "title": "The Red Apple",
+    "content": "I see a red apple. It is on the tree. I pick the apple. I bite the apple. It is sweet. I like apples.",
+    "difficulty": 1,
+    "language": "en",
+    "image": "/images/stories/apple.svg"
+  },
+  {
+    "title": "The Frog",
+    "content": "A frog sits on a log. The frog is green. It can hop. Hop hop hop. The frog hops in the pond. Splash!",
+    "difficulty": 1,
+    "language": "en",
+    "image": "/images/stories/frog.svg"
+  },
+  {
+    "title": "My Ball",
+    "content": "I have a ball. My ball is red. I kick the ball. It goes far. I run to get it. I kick it again.",
+    "difficulty": 1,
+    "language": "en",
+    "image": "/images/stories/ball.svg"
+  },
+  {
     "title": "A Day at the Park",
     "content": "I went to the park with my mom. We saw a big slide. I went down the slide fast. Then I played on the swings. My mom pushed me high. We had so much fun at the park.",
     "difficulty": 2,
@@ -54,6 +82,34 @@
     "difficulty": 1,
     "language": "bg",
     "image": "/images/stories/sun.svg"
+  },
+  {
+    "title": "Моето куче",
+    "content": "Имам куче. То е весело. Тича бързо. Маха опашка. Галя кучето. То ме лиже по ръката.",
+    "difficulty": 1,
+    "language": "bg",
+    "image": "/images/stories/dog.svg"
+  },
+  {
+    "title": "Червената ябълка",
+    "content": "Виждам червена ябълка. Тя е на дървото. Бера ябълката. Хапвам от нея. Тя е сладка. Харесвам ябълки.",
+    "difficulty": 1,
+    "language": "bg",
+    "image": "/images/stories/apple.svg"
+  },
+  {
+    "title": "Жабката",
+    "content": "Жаба седи на дънер. Жабата е зелена. Тя може да скача. Скок скок скок. Жабата скача в езерото. Цоп!",
+    "difficulty": 1,
+    "language": "bg",
+    "image": "/images/stories/frog.svg"
+  },
+  {
+    "title": "Моята топка",
+    "content": "Имам топка. Тя е червена. Ритам топката. Тя лети далеч. Тичам да я взема. Ритам я пак.",
+    "difficulty": 1,
+    "language": "bg",
+    "image": "/images/stories/ball.svg"
   },
   {
     "title": "Ден в парка",

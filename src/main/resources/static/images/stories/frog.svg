@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="20" fill="#E8F5E9"/>
+  <!-- Body -->
+  <ellipse cx="100" cy="130" rx="50" ry="35" fill="#66BB6A"/>
+  <!-- Head -->
+  <ellipse cx="100" cy="90" rx="40" ry="28" fill="#81C784"/>
+  <!-- Eye bumps -->
+  <circle cx="75" cy="65" r="16" fill="#81C784"/>
+  <circle cx="125" cy="65" r="16" fill="#81C784"/>
+  <!-- Eyes -->
+  <circle cx="75" cy="63" r="10" fill="white"/>
+  <circle cx="125" cy="63" r="10" fill="white"/>
+  <circle cx="77" cy="62" r="5" fill="#333"/>
+  <circle cx="127" cy="62" r="5" fill="#333"/>
+  <circle cx="78" cy="60" r="2" fill="white"/>
+  <circle cx="128" cy="60" r="2" fill="white"/>
+  <!-- Mouth -->
+  <path d="M65,98 Q100,115 135,98" fill="none" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <circle cx="68" cy="92" r="6" fill="#A5D6A7" opacity="0.7"/>
+  <circle cx="132" cy="92" r="6" fill="#A5D6A7" opacity="0.7"/>
+  <!-- Front legs -->
+  <ellipse cx="62" cy="155" rx="15" ry="8" fill="#66BB6A"/>
+  <ellipse cx="138" cy="155" rx="15" ry="8" fill="#66BB6A"/>
+  <!-- Belly -->
+  <ellipse cx="100" cy="135" rx="30" ry="20" fill="#A5D6A7"/>
+  <!-- Spots -->
+  <circle cx="80" cy="125" r="5" fill="#4CAF50" opacity="0.4"/>
+  <circle cx="120" cy="120" r="4" fill="#4CAF50" opacity="0.4"/>
+  <circle cx="105" cy="140" r="3" fill="#4CAF50" opacity="0.4"/>
+</svg>
