@@ -168,34 +168,71 @@
         }
     }
 
-    // Finish reading and get backend evaluation
-    async function finishReading() {
+    // Evaluate reading locally (port of backend WordComparisonService)
+    function evaluateReading(expectedWords, spokenWords, language) {
+        const MAX_LOOK_AHEAD = 3;
+        const wordResults = [];
+        let spokenIndex = 0;
+
+        for (const expected of expectedWords) {
+            const cleanExpected = normalize(expected);
+            let matched = false;
+
+            for (let ahead = 0; ahead <= MAX_LOOK_AHEAD && spokenIndex + ahead < spokenWords.length; ahead++) {
+                const spoken = normalize(spokenWords[spokenIndex + ahead]);
+                if (isCloseEnough(cleanExpected, spoken)) {
+                    matched = true;
+                    spokenIndex = spokenIndex + ahead + 1;
+                    break;
+                }
+            }
+
+            wordResults.push({ word: expected, correct: matched });
+        }
+
+        const totalWords = expectedWords.length;
+        const correctWords = wordResults.filter(r => r.correct).length;
+        const score = totalWords > 0 ? Math.round(correctWords / totalWords * 100) : 0;
+        const message = generateMessage(score, language);
+
+        return { totalWords, correctWords, score, message, wordResults };
+    }
+
+    function generateMessage(score, language) {
+        if (language === 'bg') {
+            if (score >= 90) return 'Страхотна работа! Ти си супер четец!';
+            if (score >= 70) return 'Браво! Прочете толкова много думи правилно!';
+            if (score >= 50) return 'Добър опит! Все по-добре ти се получава!';
+            return 'Хубаво усилие! Продължавай да упражняваш и ще станеш страхотен четец!';
+        }
+        if (score >= 90) return 'Amazing job! You are a superstar reader!';
+        if (score >= 70) return 'Great work! You read so many words correctly!';
+        if (score >= 50) return 'Good try! You are getting better every time!';
+        return 'Nice effort! Keep practicing and you will be a great reader!';
+    }
+
+    // Finish reading and evaluate locally
+    function finishReading() {
         recognizer.stop();
         micBtn.classList.remove('listening');
         doneBtn.style.display = 'none';
-        statusBar.textContent = t('read.checking');
 
-        try {
-            const feedback = await API.evaluateReading(story.id, recognizer.getSpokenWords());
+        const feedback = evaluateReading(story.words, recognizer.getSpokenWords(), story.language);
 
-            // Update word highlights from backend results
-            feedback.wordResults.forEach((result, i) => {
-                if (i < wordElements.length) {
-                    wordElements[i].className = 'word ' + (result.correct ? 'correct' : 'missed');
-                }
-            });
+        // Update word highlights from results
+        feedback.wordResults.forEach((result, i) => {
+            if (i < wordElements.length) {
+                wordElements[i].className = 'word ' + (result.correct ? 'correct' : 'missed');
+            }
+        });
 
-            resultScore.textContent = Math.round(feedback.score) + '%';
-            resultMessage.textContent = feedback.message;
-            resultStats.textContent = t('read.stats', { correct: feedback.correctWords, total: feedback.totalWords })
-                + ' \u2014 ' + t('points.earned', { points: sessionPoints });
+        resultScore.textContent = Math.round(feedback.score) + '%';
+        resultMessage.textContent = feedback.message;
+        resultStats.textContent = t('read.stats', { correct: feedback.correctWords, total: feedback.totalWords })
+            + ' \u2014 ' + t('points.earned', { points: sessionPoints });
 
-            readingArea.style.display = 'none';
-            resultsPanel.style.display = 'block';
-        } catch (err) {
-            statusBar.textContent = t('read.resultError');
-            doneBtn.style.display = 'block';
-        }
+        readingArea.style.display = 'none';
+        resultsPanel.style.display = 'block';
     }
 
     // Initialize
@@ -203,7 +240,7 @@
         const params = new URLSearchParams(window.location.search);
         const storyId = params.get('id');
         if (!storyId) {
-            window.location.href = '/';
+            window.location.href = 'index.html';
             return;
         }
 
